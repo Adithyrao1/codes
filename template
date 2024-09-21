@@ -36,7 +36,8 @@ void sieve() {
 		if(isprime[i]) primes.pb(i);
 	}
 }
-ll pow(int a , int n) {
+//modular exponentiation (binary -- > modular)
+ll pow(int a , int n,int mod) {
 	
 	//calculates a^n in O(logN) Time
 	
@@ -44,8 +45,8 @@ ll pow(int a , int n) {
 	
 	while(n) {
 		
-		if(n%2) res *= a , n--;
-		else a *= a , n /=2;
+		if(n%2) res  = (res*a)%mod , n--;
+		else a = (a*a) % mod , n /=2;
 	}
 	
 	return res;
